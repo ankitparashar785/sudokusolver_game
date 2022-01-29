@@ -4,15 +4,15 @@ var solve_button;
 var reset_button;
 
 window.onload = ()=> {
+    
     var create_button = document.getElementById('create_grid');
     create_button.onclick = () => {
+       // g.play();
         size = document.getElementById('grid_size').value;
         //console.log(size);
-
         CreateGrid(size);
     }
 }
-
 function CreateGrid(size) {
     
     for(let i = 0; i < size; i++) {
@@ -27,13 +27,13 @@ function CreateGrid(size) {
             temp.style.margin = "2px";
             temp.style.height = "15px";
             temp.style.width = "15px";
-
+            temp.style.backgroundColor ="#00FFFF";
             if(j % Math.sqrt(size) == Math.sqrt(size) - 1) {
-                temp.style.borderRight = "4px solid black";
+                temp.style.borderRight = "4px solid red";
             }
 
             if(i % Math.sqrt(size) == Math.sqrt(size) - 1) {
-                temp.style.borderBottom = "4px solid black";
+                temp.style.borderBottom = "4px solid red";
             }
 
             temp.value = 0;
@@ -63,28 +63,32 @@ function CreateGrid(size) {
     block.appendChild(document.createElement('br'));
     solve_button = document.createElement('button');
     reset_button = document.createElement('button');
-    
+
     solve_button.innerHTML = 'SOLVE';
     reset_button.innerHTML = 'RESET GRID';
-
+    reset_button.classList.add("hoverclass");
+    reset_button.classList.add("hoverclass");
+    solve_button.classList.add("hoverclassk");
     block.appendChild(solve_button)
     block.appendChild(reset_button);
+    
     reset_button.onclick = () => {
+        
         resetGrid(arr);
     }
 
     solve_button.onclick = () => {
         solveSudoko(arr); 
     }
-
+    
     solve_button.style.padding = "5px";
+    solve_button.style.backgroundColor = "lightgreen";
     solve_button.style.margin = "3px";
     solve_button.style.borderRadius = "7px";
-    solve_button.style.boxShadow = "0 4px #999"
     reset_button.style.padding = "5px";
     reset_button.style.margin = "3px";
     reset_button.style.borderRadius = "7px";
-    reset_button.style.boxShadow = "0 4px #999"
+    
 }
 
 function getHtmlElements(cell) {
@@ -96,11 +100,14 @@ function resetGrid(arr) {
     for(let i = 0; i < arr.length; i++) {
         for(let j = 0; j < arr.length; j++) {
             getHtmlElements([i, j]).value = 0;
+            getHtmlElements([i,j]).style.backgroundColor="#00FFFF";
         }
     }
 }
 
 function solveSudoko(arr) {
+    
+
     var emptyCells = findEmptyCells(arr);
     // console.log(emptyCells);
 
@@ -158,13 +165,19 @@ function findEmptyCells(arr) {
 
     return cells;
 }
-
+const colours = ["lime", "gold", "lightblue","deeppink","gray","magenta","Aquamarine","SpringGreen",
+"hotpink","crimson","orange"];
 function fillEmptyCell(cell) {
     var currVal = parseInt(getHtmlElements(cell).value);
     for(let i = currVal + 1; i <= size; i++) {
         if(isValidRow(cell, i) && isValidCol(cell, i) && isValidGrid(cell, i)) {
             getHtmlElements(cell).value = i;
-            getHtmlElements(cell).style.color = "green";
+            
+            if(i<colours.length)
+            {
+                getHtmlElements(cell).style.backgroundColor = colours[i];
+            }
+            
             return true;
         }
     }
