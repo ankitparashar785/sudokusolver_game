@@ -3,23 +3,109 @@
     <head>
         <title>SUDOKO SOLVER</title>
         <link rel = "stylesheet" href = "styles.css">
+        <style>
+           button.grd{
+               background-color: rgb(117, 248, 117);
+               width: 120px;
+               height: 50px;
+               border: yellow;
+               border-radius: 10px;
+               color: red;
+               visibility: hidden;
+           }
+           button.grd:hover
+           {
+               background-color: hotpink;
+               color: black;
+               cursor: pointer;
+           }
+           #grid_size{
+               width: 120px;
+               text-align: center;
+               background-color: yellow;
+               height: 50px;
+               border: yellow;
+               border-radius: 10px;
+               color: red;
+               font-size: 15px;
+               visibility: hidden;
+           }
+           #headv{
+               color: blue;
+           }
+           button.hoverclass:hover{
+               background-color:royalblue;
+               cursor: pointer;
+           }
+         
+           button.hoverclass:hover{
+               background-color:rgb(248, 114, 114);
+           }
+           button.hoverclassk:hover{
+               cursor: pointer;
+           }
+           button.strt
+           {
+            background-color: rgb(238, 38, 55);
+               width: 120px;
+               height: 50px;
+               border: yellow;
+               border-radius: 10px;
+               color:black;
+               margin-bottom: 30px;;
+               cursor: pointer;
+               
+           }
+           button.stop{
+               background-color:blue;
+               
+           }
+         
+        </style>
     </head>
     <body>
-        <h1> SUDUKO SOLVER</h1>
+        <audio src="title.mp3" id="myAudio" loop="loop"></audio>
+        <h1 id="headv">SUDUKO SOLVER</h1>
+        <button class="strt" id="start" onclick="myStart()">START</button>
+        <button class="strt stop" id="start2" onclick="stopMusic()">STOP MUSIC</button>
+
+        <br>
+
+        <div id ="mid">
         <div class = "size_select">
             <select id="grid_size">
                 <option> 4 </option>
                 <option> 9 </option>
                 <option> 16 </option>
             </select>
-
-            <button id = "create_grid"> CREATE GRID </button>
-
+           
+            <button id = "create_grid" class="grd"> CREATE GRID </button>
+        
+        </div>
         </div>
 
         <div id = "my_div">
 
         </div>
+         
+        <script>
+           function myStart(){
+              var g=document.getElementById("myAudio");
+               var z1=document.getElementById("create_grid");
+               var z2=document.getElementById("grid_size");
+               var z3=document.getElementById("start2");
+               z3.style.visibility="visible";
+               z1.style.visibility="visible";
+               z2.style.visibility="visible";
+               g.play();
+           }
+           function stopMusic()
+           {
+            var g=document.getElementById("myAudio");
+             g.pause();
+           }
+         </script>
     </body>
     <script src = "sudukosolver.js"></script>
+    
 </html>
