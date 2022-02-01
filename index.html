@@ -1,111 +1,212 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>SUDOKO SOLVER</title>
-        <link rel = "stylesheet" href = "styles.css">
-        <style>
-           button.grd{
-               background-color: rgb(117, 248, 117);
-               width: 120px;
-               height: 50px;
-               border: yellow;
-               border-radius: 10px;
-               color: red;
-               visibility: hidden;
-           }
-           button.grd:hover
-           {
-               background-color: hotpink;
-               color: black;
-               cursor: pointer;
-           }
-           #grid_size{
-               width: 120px;
-               text-align: center;
-               background-color: yellow;
-               height: 50px;
-               border: yellow;
-               border-radius: 10px;
-               color: red;
-               font-size: 15px;
-               visibility: hidden;
-           }
-           #headv{
-               color: blue;
-           }
-           button.hoverclass:hover{
-               background-color:royalblue;
-               cursor: pointer;
-           }
-         
-           button.hoverclass:hover{
-               background-color:rgb(248, 114, 114);
-           }
-           button.hoverclassk:hover{
-               cursor: pointer;
-           }
-           button.strt
-           {
-            background-color: rgb(238, 38, 55);
-               width: 120px;
-               height: 50px;
-               border: yellow;
-               border-radius: 10px;
-               color:black;
-               margin-bottom: 30px;;
-               cursor: pointer;
-               
-           }
-           button.stop{
-               background-color:blue;
-               
-           }
-         
-        </style>
-    </head>
-    <body>
-        <audio src="title.mp3" id="myAudio" loop="loop"></audio>
-        <h1 id="headv">SUDUKO SOLVER</h1>
-        <button class="strt" id="start" onclick="myStart()">START</button>
-        <button class="strt stop" id="start2" onclick="stopMusic()">STOP MUSIC</button>
+<html lang="en">
 
-        <br>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- mobile status bar color -->
+    <meta name="theme-color" content="#fff">
+    <title>Sudoku</title>
+    <link rel="shortcut icon" href="./static/images/icon.png" type="image/x-icon">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- app css -->
+    <link rel="stylesheet" href="./app.css">
+</head>
 
-        <div id ="mid">
-        <div class = "size_select">
-            <select id="grid_size">
-                <option> 4 </option>
-                <option> 9 </option>
-                <option> 16 </option>
-            </select>
-           
-            <button id = "create_grid" class="grd"> CREATE GRID </button>
-        
+<body>
+
+    <!-- top nav -->
+   <audio src="gametune.mp3" loop="loop" id="audiobut"></audio>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                Sudoku
+            </a>
+            <div class="dark-mode-toggle" id="dark-mode-toggle">
+                <span id="mode">Dark Mode</span>
+                <i class="bx bxs-sun"></i>
+                <i class="bx bxs-moon"></i>
+            </div>
         </div>
-        </div>
+    </nav>
+    <!-- end top nav -->
 
-        <div id = "my_div">
+    <!-- main -->
+    <script>
+      
+    </script>
+    <div class="main">
+       
+        <div class="screen">
+            <!-- start screen -->
+            <div class="start-screen active" id="start-screen">
+                <input type="text" placeholder="Your name" maxlength="11" class="input-name" id="input-name">
+                <div class="btn" id="btn-level">
+                    Easy
+                </div>
+                <div class="btn" id="btn-continue">Continue</div>
+                <div class="btn btn-blue" id="btn-play">New game</div>
+            </div>
+            <!-- end start screen -->
 
+            <!-- game screen -->
+            <div class="main-game" id="game-screen">
+                <div class="main-game-info-box main-game-info-hint"  id="game-hint">
+                    <span id="game-hint" >Hint</span>
+                </div>
+                <div class="main-sudoku-grid">
+                    <!-- 81 cells -->
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                </div>
+
+                <div class="main-game-info">
+                    <div class="main-game-info-box main-game-info-name">
+                        <span id="player-name">tuat</span>
+                    </div>
+                    <div class="main-game-info-box main-game-info-level">
+                        <span id="game-level">Easy</span>
+                    </div>
+                </div>
+
+                <div class="main-game-info-box main-game-info-time">
+                    <span id="game-time">10:20</span>
+                    <div class="pause-btn" id="btn-pause">
+                        <i class="bx bx-pause"></i>
+                    </div>
+                </div>
+                
+                <div class="numbers">
+                    <div class="number">1</div>
+                    <div class="number">2</div>
+                    <div class="number">3</div>
+                    <div class="number">4</div>
+                    <div class="number">5</div>
+                    <div class="number">6</div>
+                    <div class="number">7</div>
+                    <div class="number">8</div>
+                    <div class="number">9</div>
+                    <div class="delete" id="btn-delete">Un Do</div>
+                </div>
+                
+                <div class="main-game-info-box main-game-info-vol" id="game-vol-up">
+                    <span id="up-vol">Volume Up</span>
+                </div>
+                <div class="main-game-info-box main-game-info-vol"  id="game-vol-down">
+                    <span id="down-vol" >Volume Down</span>
+                </div>
+                <div class="main-game-info-box main-game-info-solve"  id="game-solve">
+                    <span id="game-solve" >Solve</span>
+                </div>
+            </div>
+            <!-- end game screen -->
+
+            <!-- pause screen -->
+            <div class="pause-screen" id="pause-screen">
+                <div class="btn btn-blue" id="btn-resume">Resume</div>
+                <div class="btn" id="btn-new-game">New game</div>
+            </div>
+            <!-- end pause screen -->
+
+            <!-- result screen -->
+            <div class="result-screen" id="result-screen">
+                <div class="congrate">Competed</div>
+                <div class="info">Time</div>
+                <div id="result-time"></div>
+                <div class="btn" id="btn-new-game-2">New game</div>
+            </div>
+            <!-- end result screen -->
         </div>
-         
-        <script>
-           function myStart(){
-              var g=document.getElementById("myAudio");
-               var z1=document.getElementById("create_grid");
-               var z2=document.getElementById("grid_size");
-               var z3=document.getElementById("start2");
-               z3.style.visibility="visible";
-               z1.style.visibility="visible";
-               z2.style.visibility="visible";
-               g.play();
-           }
-           function stopMusic()
-           {
-            var g=document.getElementById("myAudio");
-             g.pause();
-           }
-         </script>
-    </body>
-    <script src = "sudukosolver.js"></script>
-    
+    </div>
+    <!-- end main -->
+    <script src="constant.js"></script>
+    <script src="sudoku.js"></script>
+    <script src="app.js"></script>
+</body>
+
 </html>
