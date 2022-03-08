@@ -1,3 +1,4 @@
+
 This sudoku solver puzzle has diffrent level of difficulty :
 
     1 EASY
@@ -28,4 +29,7 @@ This solver uses a backtracking tree-based recursive search algorithm:
   
   8: If iteration completes without finding a valid board, return false to the parent caller (reaching this step indicates a dead end and returning false results in the     continuation of the iteration in the previous stack frame)
   
-    
+ ![pic1_front_page](https://user-images.githubusercontent.com/62975799/157167279-5ac30e51-647e-453a-a29c-ac353fa2e23a.JPG) 
+ ![pic1_front_page_dark_mode](https://user-images.githubusercontent.com/62975799/157167770-23a80027-24a5-42d5-a081-2a2f29853696.JPG)
+ ![pic2_game_page](https://user-images.githubusercontent.com/62975799/157167549-29d94310-200b-48b3-8caa-10eed5342cc6.JPG)
+
